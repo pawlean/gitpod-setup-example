@@ -1,0 +1,26 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      cargo clippy --all-features
+      cargo doc --all-features --no-deps
+      cargo test
+    command: cargo watch -x test -x 'clippy --all-features' -x 'doc --no-deps --all-features'
+
+vscode:
+  extensions:
+    - belfz.search-crates-io
+    - matklad.rust-analyzer
+    - serayuzgur.crates
+    - bungcip.better-toml
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: false
+    addBadge: false
