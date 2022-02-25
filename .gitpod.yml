@@ -2,11 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: |
-      cargo clippy --all-features
-      cargo doc --all-features --no-deps
-      cargo test
-    command: cargo watch -x test -x 'clippy --all-features' -x 'doc --no-deps --all-features'
+  - command: cargo deny --version
 
 vscode:
   extensions:
